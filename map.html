@@ -3,13 +3,22 @@
   <head>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
-    <title>Marker Clustering</title>
+    <title>Goturtle: JHB FB</title>
+    <link rel = "stylesheet"
+    type = "text/css"
+    href = "mystyle.css" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <style>
       /* Always set the map height explicitly to define the size of the div
        * element that contains the map. */
        #map {
-         width: 100%;
-         height: 600px;
+         padding-top: 100px;
+         width: 90%;
+         height: 650px;
          background-color: grey;
        }
       /* Optional: Makes the sample page fill the window. */
@@ -19,13 +28,27 @@
         padding: 0;
       }
 
-      #h1 {
-        align: centre;
-      }
     </style>
   </head>
   <body>
-    <h1> JHB according to facebook <h1>
+
+    <nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">JHB according to facebook</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="#">All</a></li>
+      <li><a href="map_retail.html">Retail</a></li>
+      <li><a href="smap.html">Snapscan</a></li>
+      <li><a href="#">Beauty</a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="#"><img src="mark.png" style="width:30px;height:20px;"  ></li>
+    </ul>
+  </div>
+</nav>
+
     <div id="map"></div>
 
     <script>
@@ -36,6 +59,23 @@
           zoom: 10,
           center: {lat: -26.1261244,lng: 27.9019527},
           zoomControl: true
+        });
+
+        var layer = new google.maps.FusionTablesLayer({
+          query: {
+            select: 'latitude',
+            from: '14zH5V94_FqLwgmSchwFXAkstlIxV_oajFDoAJI95'
+          }
+        });
+
+        var ctalayer = new google.maps.KmlLayer({
+          url: 'https://firebasestorage.googleapis.com/v0/b/jian-yang-57bf8.appspot.com/o/fibre.kml?alt=media&token=94656b9b-67a8-42e9-8ed1-dc86966721ff',
+          map: map
+        });
+
+        var ctalayer_2 = new google.maps.KmlLayer({
+          url: 'https://firebasestorage.googleapis.com/v0/b/jian-yang-57bf8.appspot.com/o/LTE%20coverage.kmz?alt=media&token=c497a006-bde9-41ad-9e8f-f22a6c04358a',
+          map: map
         });
 
         // Create an array of alphabetical characters used to label the markers.
@@ -11436,6 +11476,8 @@
                 {lat: -26.1156599,lng: 27.88866},
 
       ]
+
+
     </script>
     <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js">
     </script>

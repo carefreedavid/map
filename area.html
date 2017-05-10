@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0">
+    <meta charset="utf-8">
+    <title>KML Layers</title>
+    <style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 100%;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+
+    <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1x-901UJ_Tlqt4AKJtCFpa64DENM" width="640" height="480"></iframe>
+    
+    <div id="map"></div>
+    <script>
+
+      function initMap() {
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 11,
+          center: {lat: -26.1261244,lng: 27.9019527}
+        });
+
+        var ctaLayer = new google.maps.KmlLayer({
+          url: 'https://firebasestorage.googleapis.com/v0/b/jian-yang-57bf8.appspot.com/o/fibre.kml?alt=media&token=94656b9b-67a8-42e9-8ed1-dc86966721ff',
+          map: map
+        });
+      }
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAIUdpn2jB9Sq2ZRewoeb0v36QFYhf54fw&callback=initMap">
+    </script>
+  </body>
+</html>

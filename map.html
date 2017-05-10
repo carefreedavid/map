@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html>
   <head>
+
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
-    <title>Goturtle: JHB FB</title>
+    <title>All | JHB Overview</title>
     <link rel = "stylesheet"
     type = "text/css"
     href = "mystyle.css" />
@@ -12,40 +13,30 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <style>
-      /* Always set the map height explicitly to define the size of the div
-       * element that contains the map. */
-       #map {
-         padding-top: 100px;
-         width: 90%;
-         height: 650px;
-         background-color: grey;
-       }
-      /* Optional: Makes the sample page fill the window. */
-      html, body {
-        height: 100%;
-        margin: 0;
-        padding: 0;
-      }
+    <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
 
-    </style>
   </head>
+
   <body>
 
-    <nav class="navbar navbar-inverse">
+  <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
       <a class="navbar-brand" href="#">JHB according to facebook</a>
-    </div>
+  </div>
     <ul class="nav navbar-nav">
       <li class="active"><a href="#">All</a></li>
       <li><a href="map_retail.html">Retail</a></li>
-      <li><a href="smap.html">Snapscan</a></li>
-      <li><a href="#">Beauty</a></li>
+      <li><a href="map_food.html">Food</a></li>
+      <li><a href="map_beauty.html">Beauty</a></li>
+      <li><a href="map_snapscan.html">Snapscan</a></li>
+
+
     </ul>
     <ul class="nav navbar-nav navbar-right">
       <li><a href="#"><img src="mark.png" style="width:30px;height:20px;"  ></li>
     </ul>
+
   </div>
 </nav>
 
@@ -54,13 +45,14 @@
     <script>
 
       function initMap() {
-
+        //generates the map and sets default position
         var map = new google.maps.Map(document.getElementById('map'), {
           zoom: 10,
           center: {lat: -26.1261244,lng: 27.9019527},
           zoomControl: true
         });
 
+        // fusion table import that does not work
         var layer = new google.maps.FusionTablesLayer({
           query: {
             select: 'latitude',
@@ -68,23 +60,24 @@
           }
         });
 
+        // adds fibre kml
         var ctalayer = new google.maps.KmlLayer({
           url: 'https://firebasestorage.googleapis.com/v0/b/jian-yang-57bf8.appspot.com/o/fibre.kml?alt=media&token=94656b9b-67a8-42e9-8ed1-dc86966721ff',
           map: map
         });
 
+        // adds LTE kml
         var ctalayer_2 = new google.maps.KmlLayer({
           url: 'https://firebasestorage.googleapis.com/v0/b/jian-yang-57bf8.appspot.com/o/LTE%20coverage.kmz?alt=media&token=c497a006-bde9-41ad-9e8f-f22a6c04358a',
           map: map
         });
 
         // Create an array of alphabetical characters used to label the markers.
+
+        // titles for cluster placemarkers
         var labels = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 
-        // Add some markers to the map.
-        // Note: The code uses the JavaScript Array.prototype.map() method to
-        // create an array of markers based on a given "locations" array.
-        // The map() method here has nothing to do with the Google Maps API.
+        // sets markers for clusters
         var markers = locations.map(function(location, i) {
           return new google.maps.Marker({
             position: location,
@@ -96,6 +89,7 @@
         var markerCluster = new MarkerClusterer(map, markers,
             {imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'});
       }
+      // all the lat.lngs for cluster
       var locations = [
                   {lat: -26.1261244,lng: 27.9019527},
                 {lat: -26.13205345,lng: 28.06813717},
@@ -11479,12 +11473,25 @@
 
 
     </script>
+
     <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js">
     </script>
 
     <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAIUdpn2jB9Sq2ZRewoeb0v36QFYhf54fw&callback=initMap">
     </script>
+
+    <div id="host">
+
+      <div id="yoco">
+        <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1q7ct6LGrpu7R6Wa8i-_bSSnS1_g" width="620px" height="400px"></iframe>
+      </div>
+
+      <div id="area">
+        <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1x-901UJ_Tlqt4AKJtCFpa64DENM" width="620px" height="400px"></iframe>
+      </div>
+
+    </div>
 
   </body>
 </html>

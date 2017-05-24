@@ -591,16 +591,6 @@ var RandburgCoords =
                 ];
 
 /* list of polygons */
-
-
-for (var places in poly){
-  console.log(places.place);
-};
-
-
-/* list of points to search */
-var spoint = [[-26.063510, 27.969883], [-26.063327, 27.967909], [-25.971693, 27.860272], [-26.113240, 28.004830]];
-
 var poly_dict = {'Randburg': RandburgCoords}
 
 for (key in poly_dict){
@@ -625,6 +615,14 @@ for (key in poly_dict){
   }
 };
 
+for (var places in poly){
+  console.log(places.place);
+};
+
+
+/* list of points to search */
+var spoint = [[-26.063510, 27.969883], [-26.063327, 27.967909], [-25.971693, 27.860272], [-26.113240, 28.004830]];
+
 var dict = [];
 
 /* if statement using 'contains' to check */
@@ -646,5 +644,9 @@ for (var i = 0; i < spoint.length; i++){
   }
 
 }
+
+Object.keys(dict).map(function(k){
+    return dict[k];
+}).join(',');
 
 console.log(dict)

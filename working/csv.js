@@ -1,6 +1,4 @@
 var Papa = require('papaparse'); // npm install papaparse
-var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest; // npm install xmlhttprequest (install instructions: https://www.npmjs.com/package/xmlhttprequest)
-var xhr = new XMLHttpRequest();
 
 
 // I don't know which is the best link to use from firebase

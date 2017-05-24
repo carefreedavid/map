@@ -15313,18 +15313,22 @@ var spoint = [
     [-34.04564,18.50057]
 ];
 
-exports.one = one;
-exports.two = two;
-exports.three = three;
-exports.four = four;
-exports.five = five;
-exports.six = six;
-exports.seven = seven;
-exports.eight = eight;
-exports.nine = nine;
-exports.ten = ten;
-exports.eleven = eleven;
-exports.twelve = twelve;
-exports.sixtythree = sixtythree;
-exports.seventythree = seventythree;
+var poly_dict = {
+  'Ward 1': one,
+  'Ward 2': two,
+  'Ward 3': three,
+  'Ward 4': four,
+  'Ward 5': five,
+  'Ward 6': six,
+  'Ward 7': seven,
+  'Ward 8': eight,
+  'Ward 9': nine,
+  'Ward 10': ten,
+  'Ward 11': eleven,
+  'Ward 12': twelve,
+  'Ward 63': sixtythree,
+  'Ward 73': seventythree
+}
+
+exports.poly_dict = poly_dict;
 exports.spoint = spoint;
